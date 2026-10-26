@@ -1,0 +1,32 @@
+[
+  {
+    "code": "GG2026",
+    "discount_percent": 10,
+    "discount_uzs": 0,
+    "min_order": 100000,
+    "max_uses": 1000,
+    "current_uses": 0,
+    "expires_at": "2027-01-01",
+    "is_active": true
+  },
+  {
+    "code": "NAVROZ",
+    "discount_percent": 15,
+    "discount_uzs": 0,
+    "min_order": 150000,
+    "max_uses": 500,
+    "current_uses": 0,
+    "expires_at": "2027-01-01",
+    "is_active": true
+  },
+  {
+    "code": "ITICKET",
+    "discount_percent": 0,
+    "discount_uzs": 30000,
+    "min_order": 100000,
+    "max_uses": 500,
+    "current_uses": 0,
+    "expires_at": "2027-01-01",
+    "is_active": true
+  }
+]

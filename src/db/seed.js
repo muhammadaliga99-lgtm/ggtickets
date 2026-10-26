@@ -1,0 +1,280 @@
+/**
+ * Database Seeder: Seeds realistic initial data for venues, events, and promo codes
+ */
+
+const storage = require('./storage');
+const logger = require('../utils/logger');
+
+function runSeed(force = false) {
+  const existingEvents = storage.getEvents();
+  if (existingEvents.length > 0 && !force) {
+    logger.info('Database already contains events, skipping seed.');
+    return;
+  }
+
+  logger.info('Running database seed with real Uzbekistan venues and events...');
+
+  // --- Venues ---
+  const venues = [
+    {
+      id: 'venue_humo',
+      name_uz: "Humo Arena ko'p tarmoqli muz majmuasi",
+      name_ru: "Многофункциональный ледовый комплекс Humo Arena",
+      name_en: "Humo Arena Multi-Purpose Complex",
+      city: "Toshkent",
+      address_uz: "Chilonzor tumani, Beshyog'och ko'chasi",
+      address_ru: "Чиланзарский район, ул. Бешагач",
+      address_en: "Chilanzar district, Beshyagach street",
+      capacity: 12500,
+      map_url: "https://maps.google.com/?q=Humo+Arena+Tashkent",
+      image_url: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?auto=format&fit=crop&w=800&q=80",
+      phone: "+998 71 207 10 71"
+    },
+    {
+      id: 'venue_dostlik',
+      name_uz: "Xalqlar Do'stligi saroyi",
+      name_ru: "Дворец Дружбы Народов",
+      name_en: "Friendship of Peoples Palace",
+      city: "Toshkent",
+      address_uz: "Furqat ko'chasi, 3",
+      address_ru: "ул. Фурката, 3",
+      address_en: "Furkat street, 3",
+      capacity: 4000,
+      map_url: "https://maps.google.com/?q=Palace+of+Friendship+of+Peoples+Tashkent",
+      image_url: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80",
+      phone: "+998 71 245 92 51"
+    },
+    {
+      id: 'venue_navoi_theatre',
+      name_uz: "Alisher Navoiy nomidagi Davlat Akademik Katta Teatri (DAKT)",
+      name_ru: "ГАБТ имени Алишера Навои",
+      name_en: "Alisher Navoi State Academic Bolshoi Theatre",
+      city: "Toshkent",
+      address_uz: "Zarafshon ko'chasi, 28",
+      address_ru: "ул. Зарафшан, 28",
+      address_en: "Zarafshan street, 28",
+      capacity: 1400,
+      map_url: "https://maps.google.com/?q=Alisher+Navoi+Opera+and+Ballet+Theater+Tashkent",
+      image_url: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=80",
+      phone: "+998 71 233 90 81"
+    },
+    {
+      id: 'venue_bunyodkor',
+      name_uz: "Milliy Stadioni (Bunyodkor)",
+      name_ru: "Национальный стадион Бунёдкор",
+      name_en: "Milliy National Stadium (Bunyodkor)",
+      city: "Toshkent",
+      address_uz: "Chilonzor tumani, Muqimiy ko'chasi",
+      address_ru: "Чиланзарский район, ул. Мукими",
+      address_en: "Chilanzar district, Mukimi street",
+      capacity: 34000,
+      map_url: "https://maps.google.com/?q=Bunyodkor+Stadium+Tashkent",
+      image_url: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80",
+      phone: "+998 71 230 40 40"
+    },
+    {
+      id: 'venue_turkiston',
+      name_uz: "Turkiston san'at saroyi",
+      name_ru: "Дворец искусств Туркистон",
+      name_en: "Turkiston Palace of Arts",
+      city: "Toshkent",
+      address_uz: "Navoiy ko'chasi, 2",
+      address_ru: "ул. Навои, 2",
+      address_en: "Navoi street, 2",
+      capacity: 1000,
+      map_url: "https://maps.google.com/?q=Turkiston+Palace+Tashkent",
+      image_url: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=800&q=80",
+      phone: "+998 71 235 44 42"
+    }
+  ];
+
+  venues.forEach(v => storage.saveVenue(v));
+
+  // --- Events ---
+  const events = [
+    {
+      id: 'evt_xamdam',
+      title_uz: "Xamdam Sobirov — Katta Yakkaxon Konsert Dasturi",
+      title_ru: "Хамдам Собиров — Большой сольный концерт",
+      title_en: "Khamdam Sobirov — Grand Solo Concert Live",
+      category: "concerts",
+      venue_id: "venue_humo",
+      date: "2026-11-15",
+      time: "19:00",
+      banner_url: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80",
+      description_uz: "O'zbek estradasining eng yorqin yulduzi Xamdam Sobirovning Humo Arenada bo'lib o'tadigan unutilmas konsert dasturi! Jonli ijro, maxsus yorug'lik shoulari va yangi xit taronalar!",
+      description_ru: "Грандиозный сольный концерт яркой звезды узбекской эстрады Хамдама Собирова в Humo Arena! Живой звук, масштабное шоу и все главные хиты!",
+      description_en: "A sensational live concert by Uzbekistan's pop star Khamdam Sobirov at Humo Arena. Featuring live vocals, visual effects, and mega-hits!",
+      min_price: 150000,
+      max_price: 800000,
+      sectors: [
+        { name: "VIP Parter", price: 800000, available_seats: 48, total_seats: 50 },
+        { name: "Fan-Zona", price: 450000, available_seats: 195, total_seats: 200 },
+        { name: "Sektor A (Markaziy)", price: 280000, available_seats: 280, total_seats: 300 },
+        { name: "Sektor B (Standart)", price: 150000, available_seats: 440, total_seats: 450 }
+      ],
+      is_featured: true,
+      is_active: true
+    },
+    {
+      id: 'evt_ballet',
+      title_uz: "Romeo va Julyetta — Klassik Balet Asari",
+      title_ru: "Ромео и Джульетта — Классический балет",
+      title_en: "Romeo and Juliet — Classical Ballet Masterpiece",
+      category: "theater",
+      venue_id: "venue_navoi_theatre",
+      date: "2026-11-18",
+      time: "18:30",
+      banner_url: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80",
+      description_uz: "S.Prokofyev musiqasi ostida afsonaviy muhabbat qissasi. Alisher Navoiy nomidagi DAKTning yetakchi solistlari ijrosida unutilmas teatr oqshomi.",
+      description_ru: "Легендарная история любви под музыку С.Прокофьева в исполнении ведущих солистов балетной труппы ГАБТ им. Навои.",
+      description_en: "Sergei Prokofiev's masterpiece ballet performed by the leading soloists of the Alisher Navoi Bolshoi Opera and Ballet Theatre.",
+      min_price: 80000,
+      max_price: 250000,
+      sectors: [
+        { name: "Parter VIP", price: 250000, available_seats: 32, total_seats: 35 },
+        { name: "Parter Markaz", price: 160000, available_seats: 110, total_seats: 120 },
+        { name: "Balkon", price: 80000, available_seats: 140, total_seats: 150 }
+      ],
+      is_featured: true,
+      is_active: true
+    },
+    {
+      id: 'evt_superleague',
+      title_uz: "O'zbekiston Superligasi: Paxtakor vs Nasaf",
+      title_ru: "Суперлига Узбекистана: Пахтакор vs Насаф",
+      title_en: "Uzbekistan Super League: Pakhtakor vs Nasaf",
+      category: "sports",
+      venue_id: "venue_bunyodkor",
+      date: "2026-11-22",
+      time: "18:00",
+      banner_url: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80",
+      description_uz: "Mavsumning markaziy derbisi! O'zbekiston chempionligi uchun keskin to'qnashuv. Sevimli jamoangizni stadionda qo'llab-quvvatlang!",
+      description_ru: "Главное дерби сезона! Битва лидеров узбекского футбола за золотые медали чемпионата.",
+      description_en: "The championship title clash between giants Pakhtakor and Nasaf at Milliy Stadium.",
+      min_price: 35000,
+      max_price: 200000,
+      sectors: [
+        { name: "VIP Lounge Tribuna", price: 200000, available_seats: 40, total_seats: 50 },
+        { name: "Markaziy Sektor 1-10", price: 75000, available_seats: 480, total_seats: 500 },
+        { name: "Darvoza orti sektori", price: 35000, available_seats: 800, total_seats: 800 }
+      ],
+      is_featured: true,
+      is_active: true
+    },
+    {
+      id: 'evt_circus',
+      title_uz: "Sehrli Yangi Yil Qissasi & Katta Sirk Shou",
+      title_ru: "Волшебная новогодняя сказка и Большое цирковое шоу",
+      title_en: "Magical Winter Fairy Tale & Grand Circus Spectacular",
+      category: "kids",
+      venue_id: "venue_dostlik",
+      date: "2026-12-24",
+      time: "13:00",
+      banner_url: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=800&q=80",
+      description_uz: "Bolajonlar va butun oila uchun mo'jizaviy yangi yil sirk tomoshasi! Akrobatlar, fokusniklar, quvnoq masxarabozlar va qorbobo sovg'alari!",
+      description_ru: "Новогоднее цирковое представление для всей семьи! Акробаты, иллюзионисты, веселые клоуны и подарки!",
+      description_en: "A wonderland circus and holiday fairytale performance for kids and the whole family.",
+      min_price: 60000,
+      max_price: 150000,
+      sectors: [
+        { name: "Oldingi Qatorlar (Parter)", price: 150000, available_seats: 95, total_seats: 100 },
+        { name: "O'rta Qatorlar", price: 100000, available_seats: 240, total_seats: 250 },
+        { name: "Balkon", price: 60000, available_seats: 180, total_seats: 200 }
+      ],
+      is_featured: false,
+      is_active: true
+    },
+    {
+      id: 'evt_turkiston_comedy',
+      title_uz: "Avaz Oxun — 'Kulgi Terapiyasi' Yangi Konserti",
+      title_ru: "Аваз Охун — Новая юмористическая программа",
+      title_en: "Avaz Okhun — 'Laughter Therapy' Stand-Up Comedy",
+      category: "concerts",
+      venue_id: "venue_turkiston",
+      date: "2026-11-25",
+      time: "19:00",
+      banner_url: "https://images.unsplash.com/photo-1527224857830-43a7acc85260?auto=format&fit=crop&w=800&q=80",
+      description_uz: "Xalq suygan qiziqchi Avaz Oxunning eng sara hazillari va yangi monologlari! A'lo kayfiyat kafolatlanadi!",
+      description_ru: "Искрометный юмор, новые монологи и праздничное настроение от популярного комика Аваза Охуна!",
+      description_en: "An evening of laughter, top-tier stand-up and humor by celebrated comedian Avaz Okhun.",
+      min_price: 90000,
+      max_price: 250000,
+      sectors: [
+        { name: "VIP Parter", price: 250000, available_seats: 28, total_seats: 30 },
+        { name: "Standart Parter", price: 140000, available_seats: 85, total_seats: 90 },
+        { name: "Amfiteatr", price: 90000, available_seats: 110, total_seats: 120 }
+      ],
+      is_featured: false,
+      is_active: true
+    },
+    {
+      id: 'evt_silk_road_fest',
+      title_uz: "Tashkent Food & Music Fest 2026",
+      title_ru: "Ташкентский Фестиваль Музыки и Еды 2026",
+      title_en: "Tashkent Food & Music Open-Air Fest 2026",
+      category: "festivals",
+      venue_id: "venue_humo",
+      date: "2026-11-08",
+      time: "15:00",
+      banner_url: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80",
+      description_uz: "Markaziy Osiyoning eng yirik ochiq osmon ostidagi musiqa va milliy gastronomik festivali! DJ setlar, taniqli guruhlar va 50 dan ortiq restoranlar!",
+      description_ru: "Крупнейший фестиваль музыки и гастрономии под открытым небом! DJ сеты, живые выступления групп и более 50 ресторанов!",
+      description_en: "Central Asia's grandest open-air festival uniting live music, DJ sets, street food, and family entertainment.",
+      min_price: 70000,
+      max_price: 180000,
+      sectors: [
+        { name: "Standart Kirish Chiptasi", price: 70000, available_seats: 950, total_seats: 1000 },
+        { name: "VIP Lounge Pass (Ichimliklar bilan)", price: 180000, available_seats: 90, total_seats: 100 }
+      ],
+      is_featured: true,
+      is_active: true
+    }
+  ];
+
+  events.forEach(e => storage.saveEvent(e));
+
+  // --- Promo Codes ---
+  const promos = [
+    {
+      code: "GG2026",
+      discount_percent: 10,
+      discount_uzs: 0,
+      min_order: 100000,
+      max_uses: 1000,
+      current_uses: 0,
+      expires_at: "2027-01-01",
+      is_active: true
+    },
+    {
+      code: "NAVROZ",
+      discount_percent: 15,
+      discount_uzs: 0,
+      min_order: 150000,
+      max_uses: 500,
+      current_uses: 0,
+      expires_at: "2027-01-01",
+      is_active: true
+    },
+    {
+      code: "ITICKET",
+      discount_percent: 0,
+      discount_uzs: 30000,
+      min_order: 100000,
+      max_uses: 500,
+      current_uses: 0,
+      expires_at: "2027-01-01",
+      is_active: true
+    }
+  ];
+
+  promos.forEach(p => storage.savePromo(p));
+
+  logger.success('Database successfully seeded with realistic Uzbekistan venues, events, and promos!');
+}
+
+if (require.main === module) {
+  runSeed(true);
+}
+
+module.exports = { runSeed };

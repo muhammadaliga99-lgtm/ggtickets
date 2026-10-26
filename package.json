@@ -1,0 +1,37 @@
+{
+  "name": "ggtickets-bot",
+  "version": "1.0.0",
+  "description": "Professional iTicket.uz Telegram Bot for events, concerts, sports, theater tickets booking with QR codes and 24/7 Render deployment",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "seed": "node src/db/seed.js"
+  },
+  "keywords": [
+    "telegram-bot",
+    "iticket",
+    "tickets",
+    "telegraf",
+    "render",
+    "events",
+    "uzbekistan",
+    "tashkent",
+    "booking",
+    "qr-code"
+  ],
+  "author": "ggtickets team",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "node-cron": "^3.0.3",
+    "pdfkit": "^0.15.0",
+    "qrcode": "^1.5.3",
+    "telegraf": "^4.16.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

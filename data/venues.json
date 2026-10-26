@@ -1,0 +1,72 @@
+[
+  {
+    "id": "venue_humo",
+    "name_uz": "Humo Arena ko'p tarmoqli muz majmuasi",
+    "name_ru": "Многофункциональный ледовый комплекс Humo Arena",
+    "name_en": "Humo Arena Multi-Purpose Complex",
+    "city": "Toshkent",
+    "address_uz": "Chilonzor tumani, Beshyog'och ko'chasi",
+    "address_ru": "Чиланзарский район, ул. Бешагач",
+    "address_en": "Chilanzar district, Beshyagach street",
+    "capacity": 12500,
+    "map_url": "https://maps.google.com/?q=Humo+Arena+Tashkent",
+    "image_url": "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?auto=format&fit=crop&w=800&q=80",
+    "phone": "+998 71 207 10 71"
+  },
+  {
+    "id": "venue_dostlik",
+    "name_uz": "Xalqlar Do'stligi saroyi",
+    "name_ru": "Дворец Дружбы Народов",
+    "name_en": "Friendship of Peoples Palace",
+    "city": "Toshkent",
+    "address_uz": "Furqat ko'chasi, 3",
+    "address_ru": "ул. Фурката, 3",
+    "address_en": "Furkat street, 3",
+    "capacity": 4000,
+    "map_url": "https://maps.google.com/?q=Palace+of+Friendship+of+Peoples+Tashkent",
+    "image_url": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80",
+    "phone": "+998 71 245 92 51"
+  },
+  {
+    "id": "venue_navoi_theatre",
+    "name_uz": "Alisher Navoiy nomidagi Davlat Akademik Katta Teatri (DAKT)",
+    "name_ru": "ГАБТ имени Алишера Навои",
+    "name_en": "Alisher Navoi State Academic Bolshoi Theatre",
+    "city": "Toshkent",
+    "address_uz": "Zarafshon ko'chasi, 28",
+    "address_ru": "ул. Зарафшан, 28",
+    "address_en": "Zarafshan street, 28",
+    "capacity": 1400,
+    "map_url": "https://maps.google.com/?q=Alisher+Navoi+Opera+and+Ballet+Theater+Tashkent",
+    "image_url": "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=80",
+    "phone": "+998 71 233 90 81"
+  },
+  {
+    "id": "venue_bunyodkor",
+    "name_uz": "Milliy Stadioni (Bunyodkor)",
+    "name_ru": "Национальный стадион Бунёдкор",
+    "name_en": "Milliy National Stadium (Bunyodkor)",
+    "city": "Toshkent",
+    "address_uz": "Chilonzor tumani, Muqimiy ko'chasi",
+    "address_ru": "Чиланзарский район, ул. Мукими",
+    "address_en": "Chilanzar district, Mukimi street",
+    "capacity": 34000,
+    "map_url": "https://maps.google.com/?q=Bunyodkor+Stadium+Tashkent",
+    "image_url": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80",
+    "phone": "+998 71 230 40 40"
+  },
+  {
+    "id": "venue_turkiston",
+    "name_uz": "Turkiston san'at saroyi",
+    "name_ru": "Дворец искусств Туркистон",
+    "name_en": "Turkiston Palace of Arts",
+    "city": "Toshkent",
+    "address_uz": "Navoiy ko'chasi, 2",
+    "address_ru": "ул. Навои, 2",
+    "address_en": "Navoi street, 2",
+    "capacity": 1000,
+    "map_url": "https://maps.google.com/?q=Turkiston+Palace+Tashkent",
+    "image_url": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=800&q=80",
+    "phone": "+998 71 235 44 42"
+  }
+]

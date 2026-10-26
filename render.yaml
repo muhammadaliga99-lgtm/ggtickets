@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: ggtickets-bot
+    env: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: node src/index.js
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: NODE_ENV
+        value: production
+      - key: KEEP_ALIVE
+        value: "true"
+      - key: ADMIN_IDS
+        sync: false
+      - key: WEBHOOK_URL
+        sync: false
