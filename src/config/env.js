@@ -8,9 +8,11 @@ dotenv.config();
 const BOT_TOKEN = process.env.BOT_TOKEN || '8740667959:AAGYYIfOlQRXdCf3RVtpQbqhhgmvB9rmfhg';
 const PORT = parseInt(process.env.PORT || '3000', 10);
 const NODE_ENV = process.env.NODE_ENV || 'production';
-const WEBHOOK_URL = process.env.WEBHOOK_URL || process.env.RENDER_EXTERNAL_URL || '';
+const rawWebhook = process.env.WEBHOOK_URL || process.env.RENDER_EXTERNAL_URL || '';
+const WEBHOOK_URL = (rawWebhook.startsWith('https://') || rawWebhook.startsWith('http://')) ? rawWebhook : '';
 const KEEP_ALIVE = process.env.KEEP_ALIVE !== 'false';
-const RENDER_EXTERNAL_URL = process.env.RENDER_EXTERNAL_URL || process.env.WEBHOOK_URL || '';
+const rawRenderUrl = process.env.RENDER_EXTERNAL_URL || process.env.WEBHOOK_URL || '';
+const RENDER_EXTERNAL_URL = (rawRenderUrl.startsWith('https://') || rawRenderUrl.startsWith('http://')) ? rawRenderUrl : '';
 
 // Parse admin IDs from comma separated list
 const adminIdsRaw = process.env.ADMIN_IDS || '';
