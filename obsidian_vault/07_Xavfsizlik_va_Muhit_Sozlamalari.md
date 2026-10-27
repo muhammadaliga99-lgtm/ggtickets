@@ -10,7 +10,7 @@ Ushbu bo'limda tizim xavfsizligi, muhit o'zgaruvchilari va xatoliklarga chidamli
 
 ```ini
 # Telegram Bot Tokeni (BotFather bergan maxfiy token)
-BOT_TOKEN=8740667959:AAGYYIfOlQRXdCf3RVtpQbqhhgmvB9rmfhg
+BOT_TOKEN=your_bot_token_here
 
 # Server porti (Render o'zi process.env.PORT orqali sozlaydi)
 PORT=3000

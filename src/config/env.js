@@ -5,7 +5,7 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
-const BOT_TOKEN = process.env.BOT_TOKEN || '8740667959:AAGYYIfOlQRXdCf3RVtpQbqhhgmvB9rmfhg';
+const BOT_TOKEN = process.env.BOT_TOKEN;
 const PORT = parseInt(process.env.PORT || '3000', 10);
 const NODE_ENV = process.env.NODE_ENV || 'production';
 const rawWebhook = process.env.WEBHOOK_URL || process.env.RENDER_EXTERNAL_URL || '';

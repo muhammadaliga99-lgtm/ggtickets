@@ -56,7 +56,7 @@ npm install
 ### 3. Konfiguratsiya
 `.env` faylini yarating yoki mavjud `.env` ni tekshiring:
 ```ini
-BOT_TOKEN=8740667959:AAGYYIfOlQRXdCf3RVtpQbqhhgmvB9rmfhg
+BOT_TOKEN=your_bot_token_here
 PORT=3000
 NODE_ENV=development
 ADMIN_IDS=
@@ -97,7 +97,7 @@ Loyihada Render uchun maxsus `render.yaml` fayli tayyorlangan:
    * **Start Command:** `node src/index.js`
    * **Health Check Path:** `/health`
 5. **Environment Variables** ga quyidagilarni kiriting:
-   * `BOT_TOKEN`: `8740667959:AAGYYIfOlQRXdCf3RVtpQbqhhgmvB9rmfhg`
+   * `BOT_TOKEN`: `your_bot_token_here`
    * `NODE_ENV`: `production`
    * `KEEP_ALIVE`: `true`
    * `ADMIN_IDS`: *Sizning Telegram ID raqamingiz*

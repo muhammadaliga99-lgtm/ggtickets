@@ -45,7 +45,7 @@ Pastdagi **Environment Variables** bo'limiga quyidagi kalitlarni qo'shing:
 
 | Kalit (Key) | Qiymat (Value) | Izoh |
 | :--- | :--- | :--- |
-| `BOT_TOKEN` | `8740667959:AAGYYIfOlQRXdCf3RVtpQbqhhgmvB9rmfhg` | Telegram Bot Tokeni |
+| `BOT_TOKEN` | `sizning_bot_tokeningiz` | Telegram Bot Tokeni |
 | `NODE_ENV` | `production` | Ishlab chiqarish muhiti |
 | `KEEP_ALIVE` | `true` | 24/7 uyg'oq turish xizmati |
 | `ADMIN_IDS` | `Sizning_Telegram_IDingiz` | Masalan: `12345678` |
